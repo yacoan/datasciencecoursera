@@ -40,7 +40,6 @@ All_std  <-  sapply(All[feature_names$V2],sd,na.rm=TRUE)
 library(data.table)
 temp <- data.table(All)
 TidyData <- temp[, lapply(.SD, mean), by=c("Subject", "Activity")]
-TidyData <- TidyData[order(TidyData$Subject),]
 
 #Print file
 write.table(TidyData, file="./tidydata.txt", sep="\t", row.names=FALSE)
